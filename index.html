@@ -40,7 +40,7 @@
 
 <h2>什么是KBEngine?</h2>
 
-<p>kbengine仿照bigworld技术努力成为一款开源mmorpg引擎，bigworld引擎的特点是开发者无需接触c++底层，
+<p>kbengine仿照bigworld技术努力成为一款开源mmog引擎，bigworld引擎的特点是开发者无需接触c++底层，
 无需重复性的实现网络，内存管理，线程管理等底层通用性技术，把精力集中到游戏开发层面上来，
 使用python就能够简单高效的打造一款游戏。</p>
 
@@ -84,12 +84,14 @@ baseappmgr将一个client分配给它之后， 它才接受某个帐号登陆，
 
 
 · kbmachine:
-抽象出一个kbe硬件节点。主要用途是接受远程指令处理本机上的组件启动与关闭, 提供本机上运行组件的ip接口
-以及搜集当前机器上的一些信息， 如：CPU， 内存等。 这些信息会提供给一些对此比较感兴趣的组件。 
+抽象出一个kbe硬件节点(一台硬件服务器只能存在一个这样的进程)。主要用途是接受远程指令处理本机上的组件启动与关闭, 
+提供本机上运行组件的接入口以及搜集当前机器上的一些信息， 
+如：CPU， 内存等。 这些信息会提供给一些对此比较感兴趣的组件。 
 
 
 · guiconsole: 
-控制工具， 可以实时网络连接到某个进程动态调试游戏， 启动服务器与关闭查看日志等。 
+这是一个控制台工具， 可以实时的观察服务器运行状态， 实时观测不同space中entity的动态，
+并支持动态调试服务器python逻辑层以及查看各个组件的日志，启动服务器与关闭等。 
 </code></pre>
 
 <h2>GO!</h2>
@@ -100,15 +102,19 @@ baseappmgr将一个client分配给它之后， 它才接受某个帐号登陆，
 
 <p>linux:</p>
 
-<pre><code>[root@localhost ~]# vim ~/.bashrc
+<pre><code>[kbe@localhost ~]# vim ~/.bashrc
 
 ulimit -c unlimited
 
-export KBE_ROOT=/root/kbengine/
+export KBE_ROOT=/home/kbe/kbengine/
 
-export KBE_RES_PATH='/root/kbengine/kbe/res/;/root/kbengine/demo/;/root/kbengine/demo/res/'
+export KBE_RES_PATH=$KBE_ROOT/kbe/res/:$KBE_ROOT/demo/:$KBE_ROOT/demo/res/
 
-export KBE_HYBRID_PATH=/root/kbengine/kbe/bin/Hybrid64/
+export KBE_HYBRID_PATH=$KBE_ROOT/kbe/bin/Hybrid64/
+
+[root@localhost ~]# vim /etc/passwd
+
+修改kbe的uid必须唯一, uid用来区分不同的服务器组， 如果二台硬件维护一组服务器那么二台硬件上的uid必须一致。
 </code></pre>
 
 <p>windows:</p>
@@ -123,7 +129,7 @@ export KBE_HYBRID_PATH=/root/kbengine/kbe/bin/Hybrid64/
 
 <p>KBE_RES_PATH:</p>
 
-<pre><code>相关资源路径用';'分隔, 第一个res必须是kbe系统res, 第二个res必须是用户脚本res， 其他无限制。
+<pre><code>相关资源路径用':'或者';'分隔, 第一个res必须是kbe系统res, 第二个res必须是用户脚本res， 其他无限制。
 </code></pre>
 
 <p>KBE_HYBRID_PATH:</p>
@@ -151,6 +157,21 @@ gcc: 4.4.5
 KBE_ROOT\kbengine\kbe\src\kbengine_vs90.sln
 </code></pre>
 
+<h2>配置数据库:</h2>
+
+<pre><code>1: 安装好mysql
+
+2: 创建一个数据库账户， 假设用户名密码都为"kbe"
+    grant all privileges on mydb.* to kbe@% identified by 'kbe';
+    grant select,insert,update,delete,create,drop on mydb.* to kbe@% identified by 'kbe';
+    FLUSH PRIVILEGES;
+
+3: 新建一个数据库， 假设数据库名为"kbe"
+    create database kbe;
+
+4: 在res\server\kbengine_defs.xml的dbmgr节修改相关参数(推荐在demo\res\server\kbengine.xml进行重载修改)。
+</code></pre>
+
 <h2>启动服务器:</h2>
 
 <p>linux:</p>
@@ -169,6 +190,13 @@ sh kill.sh
 !.bat
 
 ~.bat
+
+或者使用tools\server\guiconsole\guiconsole.exe来启动和关闭服务器。
+</code></pre>
+
+<h2>日志:</h2>
+
+<pre><code>KBE_HYBRID_PATH目录下会产生各组件运行的日志信息， 也可以使用guiconsole来查看。
 </code></pre>
         </section>
 
