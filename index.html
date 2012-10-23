@@ -36,7 +36,8 @@
 
 <h2>控制台截图:</h2>
 
-<p><a href="http://v.youku.com/v_show/id_XMTc2MDcxMDUy.html"><img src="https://github.com/downloads/kbengine/kbengine/guiconsole.jpg" alt="kbengine"></a></p>
+<p><a href="http://v.youku.com/v_show/id_XMTc2MDcxMDUy.html"><img src="https://github.com/downloads/kbengine/kbengine/guiconsole_debug.jpg" alt="kbengine"></a>
+<a href="http://v.youku.com/v_show/id_XMTc2MDcxMDUy.html"><img src="https://github.com/downloads/kbengine/kbengine/guiconsole_log.jpg" alt="kbengine"></a></p>
 
 <h2>什么是KBEngine?</h2>
 
@@ -141,8 +142,8 @@ export KBE_HYBRID_PATH=$KBE_ROOT/kbe/bin/Hybrid64/
 
 <p>linux:</p>
 
-<pre><code>测试系统:centos5.x, debian5.x
-gcc: 4.4.5
+<pre><code>测试系统(x32&amp;x64): centos &gt;= 5.x, debian &gt;= 5.x
+编译器 gcc: &gt;= 4.4.x
 
 
 [root@localhost ~]# cd $KBE_ROOT/kbe/src
@@ -157,9 +158,29 @@ gcc: 4.4.5
 KBE_ROOT\kbengine\kbe\src\kbengine_vs90.sln
 </code></pre>
 
+<p>注意: </p>
+
+<pre><code>1: 如使用其他版本编译器最好将python、log4cxx、 mysql也重新编译。
+
+2: 在linux上编译完成如因为python无法初始化无法正常运行的情况(这是个bug http://bugs.python.org/issue11320):
+
+cd src\lib\python
+
+./configure
+
+make
+
+make install
+
+再启动服务器
+</code></pre>
+
 <h2>配置数据库:</h2>
 
 <pre><code>1: 安装好mysql
+    如果是windows系统则my.ini中加入如下代码使mysql大小写敏感
+    [mysqld]
+    lower_case_table_names=2
 
 2: 创建一个数据库账户， 假设用户名密码都为"kbe"
     grant all privileges on mydb.* to kbe@% identified by 'kbe';
