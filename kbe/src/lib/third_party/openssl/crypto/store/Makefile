@@ -16,7 +16,7 @@ GENERAL=Makefile
 #TEST= storetest.c
 TEST=
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC= str_err.c str_lib.c str_meth.c str_mem.c
 LIBOBJ= $(KBE_CONFIG)/str_err.o $(KBE_CONFIG)/str_lib.o \

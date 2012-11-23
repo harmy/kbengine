@@ -15,7 +15,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile
 TEST=
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=txt_db.c
 LIBOBJ=$(KBE_CONFIG)/txt_db.o

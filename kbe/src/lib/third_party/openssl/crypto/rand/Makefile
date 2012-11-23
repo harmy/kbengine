@@ -15,7 +15,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile
 TEST= randtest.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=md_rand.c randfile.c rand_lib.c rand_err.c rand_egd.c \
 	rand_win.c rand_unix.c rand_os2.c rand_nw.c

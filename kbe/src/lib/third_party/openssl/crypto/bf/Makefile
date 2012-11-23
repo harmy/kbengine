@@ -22,7 +22,7 @@ AFLAGS= $(ASFLAGS)
 GENERAL=Makefile
 TEST=bftest.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=bf_skey.c bf_ecb.c bf_enc.c bf_cfb64.c bf_ofb64.c 
 LIBOBJ=$(KBE_CONFIG)/bf_skey.o $(KBE_CONFIG)/bf_ecb.o $(BF_ENC) $(KBE_CONFIG)/bf_cfb64.o $(KBE_CONFIG)/bf_ofb64.o

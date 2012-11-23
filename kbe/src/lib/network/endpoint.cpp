@@ -414,8 +414,8 @@ int EndPoint::getQueueSizes(int & tx, int & rx) const
 		return -1;
 	}
 
-	char	aline[256];
-	fgets(aline, 256, f);
+	char aline[256];
+	//fgets(aline, 256, f);
 
 	while (fgets(aline, 256, f) != NULL)
 	{	// it goes "iiii: hhhhhhhh:pppp" (could check ip too 'tho)

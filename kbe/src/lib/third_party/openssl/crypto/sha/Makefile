@@ -20,7 +20,7 @@ AFLAGS= $(ASFLAGS)
 GENERAL=Makefile
 TEST=shatest.c sha1test.c sha256t.c sha512t.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=sha_dgst.c sha1dgst.c sha_one.c sha1_one.c sha256.c sha512.c
 LIBOBJ=$(KBE_CONFIG)/sha_dgst.o $(KBE_CONFIG)/sha1dgst.o $(KBE_CONFIG)/sha_one.o $(KBE_CONFIG)/sha1_one.o $(KBE_CONFIG)/sha256.o $(KBE_CONFIG)/sha512.o $(SHA1_ASM_OBJ)

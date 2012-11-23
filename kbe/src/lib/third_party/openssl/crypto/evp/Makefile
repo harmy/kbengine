@@ -16,7 +16,7 @@ GENERAL=Makefile
 TEST=evp_test.c
 TESTDATA=evptests.txt
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC= encode.c digest.c evp_enc.c evp_key.c evp_acnf.c \
 	e_des.c e_bf.c e_idea.c e_des3.c e_camellia.c\

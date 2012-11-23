@@ -20,7 +20,7 @@ AFLAGS= $(ASFLAGS)
 GENERAL=Makefile
 TEST=md5test.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=md5_dgst.c md5_one.c
 LIBOBJ=$(KBE_CONFIG)/md5_dgst.o $(KBE_CONFIG)/md5_one.o $(MD5_ASM_OBJ)

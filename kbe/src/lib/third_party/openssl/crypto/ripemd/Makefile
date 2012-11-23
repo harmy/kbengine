@@ -20,7 +20,7 @@ AFLAGS= $(ASFLAGS)
 GENERAL=Makefile
 TEST=rmdtest.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=rmd_dgst.c rmd_one.c
 LIBOBJ=$(KBE_CONFIG)/rmd_dgst.o $(KBE_CONFIG)/rmd_one.o $(RMD160_ASM_OBJ)

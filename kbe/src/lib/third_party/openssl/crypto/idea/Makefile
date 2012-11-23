@@ -15,7 +15,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile
 TEST=ideatest.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=i_cbc.c i_cfb64.c i_ofb64.c i_ecb.c i_skey.c
 LIBOBJ=$(KBE_CONFIG)/i_cbc.o $(KBE_CONFIG)/i_cfb64.o $(KBE_CONFIG)/i_ofb64.o $(KBE_CONFIG)/i_ecb.o $(KBE_CONFIG)/i_skey.o

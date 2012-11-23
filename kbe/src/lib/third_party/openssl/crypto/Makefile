@@ -30,7 +30,7 @@ AFLAGS=$(ASFLAGS)
 LIBS=
 
 GENERAL=Makefile README crypto-lib.com install.com
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB= $(LIBDIR)/libcrypto.a
 SHARED_LIB= libcrypto$(SHLIB_EXT)
 LIBSRC=	cryptlib.c mem.c mem_clr.c mem_dbg.c cversion.c ex_data.c tmdiff.c cpt_err.c ebcdic.c uid.c o_time.c o_str.c o_dir.c

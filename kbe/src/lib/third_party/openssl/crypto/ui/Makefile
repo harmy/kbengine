@@ -19,7 +19,7 @@ APPS=
 
 COMPATSRC= ui_compat.c
 COMPATOBJ= $(KBE_CONFIG)/ui_compat.o
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC= ui_err.c ui_lib.c ui_openssl.c ui_util.c $(COMPATSRC)
 LIBOBJ= $(KBE_CONFIG)/ui_err.o $(KBE_CONFIG)/ui_lib.o $(KBE_CONFIG)/ui_openssl.o $(KBE_CONFIG)/ui_util.o $(COMPATOBJ)

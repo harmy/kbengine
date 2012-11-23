@@ -16,7 +16,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile
 TEST=md4test.c
 APPS=md4.c
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=md4_dgst.c md4_one.c
 LIBOBJ=$(KBE_CONFIG)/md4_dgst.o $(KBE_CONFIG)/md4_one.o

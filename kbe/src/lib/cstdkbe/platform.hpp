@@ -83,6 +83,7 @@ along with KBEngine.  If not, see <http://www.gnu.org/licenses/>.
 #include <sys/uio.h>
 #include <sys/resource.h> 
 #include <linux/errqueue.h>
+#include <iconv.h>
 #endif
 
 #if !defined( PLAYSTATION3 )

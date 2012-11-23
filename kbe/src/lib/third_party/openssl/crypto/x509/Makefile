@@ -15,7 +15,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile README
 TEST=
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libcrypto.a
 LIBSRC=	x509_def.c x509_d2.c x509_r2x.c x509_cmp.c \
 	x509_obj.c x509_req.c x509spki.c x509_vfy.c \

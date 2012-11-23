@@ -17,7 +17,7 @@ CFLAGS= $(INCLUDES) $(CFLAG)
 GENERAL=Makefile README ssl-lib.com install.com
 TEST=ssltest.c
 APPS=
-
+LIBDIR=$(KBE_ROOT)/kbe/src/lib/bin
 LIB=$(LIBDIR)/libssl.a
 SHARED_LIB= libssl$(SHLIB_EXT)
 LIBSRC=	\

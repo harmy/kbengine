@@ -181,11 +181,7 @@ ifdef USE_PYTHON
 endif # USE_PYTHON
 
 ifdef USE_MYSQL
-ifneq (,$(findstring 64,$(KBE_CONFIG)))
-	MYSQL_CONFIG_PATH=/usr/lib64/mysql/mysql_config
-else
-	MYSQL_CONFIG_PATH=/usr/lib/mysql/mysql_config
-endif
+MYSQL_CONFIG_PATH=/usr/bin/mysql_config
 
 LDLIBS += `$(MYSQL_CONFIG_PATH) --libs_r`
 CPPFLAGS += -DUSE_KBE_MYSQL
@@ -235,12 +231,12 @@ ifneq (,$(findstring 64,$(KBE_CONFIG)))
 	OPENSSL_CONFIG="x86_64=1"
 	PYTHON_EXTRA_CFLAGS="EXTRA_CFLAGS=-m64 -fPIC"
 	ARCHFLAGS=-m64 -fPIC
-	MYSQL_CONFIG_PATH=/usr/lib64/mysql/mysql_config
+	MYSQL_CONFIG_PATH=/usr/bin/mysql_config
 else
 	OPENSSL_CONFIG=
 	PYTHON_EXTRA_CFLAGS="EXTRA_CFLAGS=-m32"
 	ARCHFLAGS=-m32
-	MYSQL_CONFIG_PATH=/usr/lib/mysql/mysql_config
+	MYSQL_CONFIG_PATH=/usr/bin/mysql_config
 endif
 
 ifdef USE_CPPUNITLITE2
@@ -283,7 +279,7 @@ CXXFLAGS += -Wall -Wno-deprecated
 CXXFLAGS += -Wno-uninitialized -Wno-char-subscripts
 CXXFLAGS += -fno-strict-aliasing -Wno-non-virtual-dtor
 CXXFLAGS += -Wno-invalid-offsetof
-CXXFLAGS += -Werror
+#CXXFLAGS += -Werror
 
 CPPFLAGS += -DKBE_SERVER -MMD -DKBE_CONFIG=\"${KBE_CONFIG}\"
 
